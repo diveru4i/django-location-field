@@ -5,8 +5,9 @@ from location_field.widgets import LocationWidget
 
 
 class PlainLocationField(fields.CharField):
-    def __init__(self, based_fields=None, zoom=None, suffix='',
+    def __init__(self, based_fields=None, zoom=None, suffix='', default=None,
                  *args, **kwargs):
+        kwargs['initial'] = default
 
         self.widget = LocationWidget(based_fields=based_fields, zoom=zoom,
                                      suffix=suffix, **kwargs)
